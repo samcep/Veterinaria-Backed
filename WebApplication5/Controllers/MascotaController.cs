@@ -42,7 +42,9 @@ namespace WebApplication5.Controllers
             try
             {
                 var response =  await _mascotaRepository.getMascotaById(id);
-                return _responseMessage.setResponseMessage("Success", response, "Informacion Retornados Correctamente");
+                List<Mascota> mascotaList = new List<Mascota>();
+                mascotaList.Add(response);
+                return _responseMessage.setResponseMessage("Success", mascotaList, "Informacion Retornados Correctamente");
             }
             catch (Exception ex)
             {
